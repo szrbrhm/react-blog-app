@@ -1,20 +1,16 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import ClaruswayLogo from '../img/CLARUSWAY_LOGO.png'
 
-import AccountCircle from '@mui/icons-material/AccountCircle';
-
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-
-export default function MenuAppBar() {
-  const [auth, setAuth] = React.useState(true);
+export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
- 
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -26,14 +22,16 @@ export default function MenuAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-     
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
-        
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+            <a href="https://clarusway.com/">
+                <img src={ClaruswayLogo} alt="" />
+            </a>
           </Typography>
-          {auth && (
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          ──── SzrBrhm /  ────
+          </Typography>
             <div>
               <IconButton
                 size="large"
@@ -49,22 +47,22 @@ export default function MenuAppBar() {
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Login</MenuItem>
+                <MenuItem onClick={handleClose}>Register</MenuItem>
               </Menu>
             </div>
-          )}
+          
         </Toolbar>
       </AppBar>
     </Box>
