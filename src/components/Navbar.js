@@ -1,16 +1,20 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import ClaruswayLogo from '../img/CLARUSWAY_LOGO.png'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 
-export default function Navbar() {
+import AccountCircle from '@mui/icons-material/AccountCircle';
+
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+
+export default function MenuAppBar() {
+  
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -22,16 +26,17 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <a href="https://clarusway.com/">
-                <img src={ClaruswayLogo} alt="" />
+          <a href="https://clarusway.com/">
+              <img src="https://eds-fireblog.herokuapp.com/static/media/cw.041cf5e8.jpeg" alt="" style={{ width: "40px", height:"40px" }}/>
             </a>
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          ──── SzrBrhm /  ────
+          <p>SzrBrhm / BLOG </p>
           </Typography>
+          
             <div>
               <IconButton
                 size="large"
@@ -47,19 +52,19 @@ export default function Navbar() {
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Login</MenuItem>
-                <MenuItem onClick={handleClose}>Register</MenuItem>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
             </div>
           
