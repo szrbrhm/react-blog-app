@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,8 +8,13 @@ import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { signOut } from "../auth/firebase";
 
 export default function MenuAppBar() {
+  const history = useHistory();
+  const { currentUser } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
@@ -24,7 +30,7 @@ export default function MenuAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <a href="https://clarusway.com/">
+            <a href="/">
               <img
                 src="https://eds-fireblog.herokuapp.com/static/media/cw.041cf5e8.jpeg"
                 alt=""
@@ -69,8 +75,30 @@ export default function MenuAppBar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Login</MenuItem>
-              <MenuItem onClick={handleClose}>Register</MenuItem>
+              {currentUser ? (
+                <h3>{currentUser}</h3>
+              ) : (
+                <MenuItem
+                  onClick={handleClose}
+                  onClick={() => history.push("/login")}
+                >
+                  Login
+                </MenuItem>
+              )}
+              {currentUser ? (
+                <MenuItem onClick={handleClose} onClick={() => signOut()}>
+                  Logout
+                </MenuItem> &&
+                <MenuItem>New</MenuItem> &&
+                <MenuItem>Profile</MenuItem>
+              ) : (
+                <MenuItem
+                  onClick={handleClose}
+                  onClick={() => history.push("/register")}
+                >
+                  Register
+                </MenuItem>
+              )}
             </Menu>
           </div>
         </Toolbar>
