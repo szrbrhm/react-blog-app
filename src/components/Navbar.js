@@ -34,7 +34,9 @@ export default function MenuAppBar() {
             </a>
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <p>SzrBrhm / BLOG </p>
+           <a href="https://github.com/szrbrhm" target="_blank" rel="noreferrer" style={{textDecoration:"none", color:"white"}}>
+            <i>{"< SzrBrhm / > BLOG"} </i>
+            </a>
           </Typography>
           
             <div>
@@ -63,8 +65,8 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Login</MenuItem>
+                <MenuItem onClick={handleClose}>Register</MenuItem>
               </Menu>
             </div>
           
