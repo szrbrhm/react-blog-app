@@ -19,7 +19,7 @@ const Register = () => {
   return (
     <div className="register">
       <div className="form-image">
-        <img src={"https://picsum.photos/1200/900"} alt="sample-movie" />
+        <img src={"https://picsum.photos/1200/900"} alt="" />
       </div>
       <div className="register-form">
         <h1 className="form-title display-3">Register</h1>
