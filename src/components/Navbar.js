@@ -76,7 +76,7 @@ export default function MenuAppBar() {
               onClose={handleClose}
             >
               {currentUser ? (
-                <h3>{currentUser}</h3>
+                <h3>{currentUser.Closed}</h3>
               ) : (
                 <MenuItem
                   onClick={handleClose}
@@ -86,11 +86,13 @@ export default function MenuAppBar() {
                 </MenuItem>
               )}
               {currentUser ? (
-                <MenuItem onClick={handleClose} onClick={() => signOut()}>
-                  Logout
-                </MenuItem> &&
-                <MenuItem>New</MenuItem> &&
-                <MenuItem>Profile</MenuItem>
+                <MenuItem  onClick={handleClose} onClick={() => signOut()}>
+                 <span>New</span>
+                 <span>Profile</span>
+                 <span>Logout</span>
+                  
+
+                </MenuItem>
               ) : (
                 <MenuItem
                   onClick={handleClose}
