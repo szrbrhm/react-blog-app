@@ -9,6 +9,13 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import IconButton from "@mui/material/IconButton";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function ImgMediaCard() {
   return (
@@ -38,12 +45,16 @@ export default function ImgMediaCard() {
         <AccountCircleIcon style={{ marginRight: "5px", marginLeft: "10px" }} />
         kapadokya@gmail.com
       </Typography>
-      <IconButton>
-        <FavoriteBorderIcon />
-      </IconButton>
-      <IconButton>
-        <ChatBubbleOutlineIcon />
-      </IconButton>
+      <Checkbox
+        {...label}
+        icon={<FavoriteBorder />}
+        checkedIcon={<Favorite />}
+      />
+      <Checkbox
+        {...label}
+        icon={<BookmarkBorderIcon />}
+        checkedIcon={<BookmarkIcon />}
+      />
     </Card>
   );
 }
