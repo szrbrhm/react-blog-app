@@ -5,6 +5,8 @@ import IconLabelButtons from '../components/Submit'
 import BlogLogo from '../img/blok.7e6674a5.png'
 
 export default function FormPropsTextFields() {
+
+
   return (
     <Box
       component="form"
@@ -45,7 +47,7 @@ export default function FormPropsTextFields() {
           defaultValue="Content"
           
         />
-        <IconLabelButtons/>
+        <IconLabelButtons />
       </div>
     </Box>
   );

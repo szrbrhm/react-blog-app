@@ -6,8 +6,8 @@ import Stack from '@mui/material/Stack';
 
 export default function IconLabelButtons() {
   return (
-    <Stack direction="row">
-      <Button variant="contained" endIcon={<SendIcon />}>
+    <Stack direction="row" >
+      <Button variant="contained" endIcon={<SendIcon />}  >
         Send
       </Button>
     </Stack>

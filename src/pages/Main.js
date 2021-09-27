@@ -6,9 +6,9 @@ import FormPropsTextFields from '../pages/New'
 const Main = () => {
   return (
     <div>
-      {/* <Card/> */}
+      <Card/>
       {/* <Header/> */}
-      <FormPropsTextFields/>
+      
     </div>
   )
 }
