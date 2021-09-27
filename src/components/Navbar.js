@@ -13,15 +13,28 @@ import { AuthContext } from "../context/AuthContext";
 import { signOut } from "../auth/firebase";
 
 export default function MenuAppBar() {
+  
   const history = useHistory();
   const { currentUser } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+
+  const logOut = () => {
+    handleClose();
+    signOut();
+  }
+
+  const newOpen = () => {
+    handleClose();
+    history.push('/new')
+  }
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
+   
     setAnchorEl(null);
   };
 
@@ -86,13 +99,26 @@ export default function MenuAppBar() {
                 </MenuItem>
               )}
               {currentUser ? (
-                <MenuItem  onClick={handleClose} onClick={() => signOut()}>
-                 <span>New</span>
-                 <span>Profile</span>
-                 <span>Logout</span>
-                  
+                <>
+                <MenuItem onClick={newOpen}  >
+                 
+                 <span >New</span>
 
-                </MenuItem>
+             </MenuItem>
+             <MenuItem onClick={logOut}  >
+                 
+                  <span >Profile</span>
+
+              </MenuItem>
+                <MenuItem onClick={logOut}  >
+                 
+                 <span >Logout</span>
+
+             </MenuItem>
+
+
+                </>
+
               ) : (
                 <MenuItem
                   onClick={handleClose}
