@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { signOut } from "../auth/firebase";
 
+
 export default function MenuAppBar() {
   
   const history = useHistory();
@@ -27,6 +28,11 @@ export default function MenuAppBar() {
   const newOpen = () => {
     handleClose();
     history.push('/new')
+  }
+
+  const profileOpen = () => {
+    handleClose();
+    history.push('/profile')
   }
 
   const handleMenu = (event) => {
@@ -105,7 +111,7 @@ export default function MenuAppBar() {
                  <span >New</span>
 
              </MenuItem>
-             <MenuItem onClick={logOut}  >
+             <MenuItem onClick={profileOpen}  >
                  
                   <span >Profile</span>
 
