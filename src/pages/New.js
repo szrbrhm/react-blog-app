@@ -6,6 +6,9 @@ import BlogLogo from '../img/blok.7e6674a5.png'
 
 export default function FormPropsTextFields() {
 
+  const handleInputChange = (e) => {
+    const {title, url, content} = e.target;
+  }
 
   return (
     <Box
